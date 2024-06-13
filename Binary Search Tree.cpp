@@ -39,10 +39,33 @@ public:
         Node* currentNode = nullptr;
         search(element, parent, currentNode);       // Locate the node which will be the parent of the node to be insert
 
+        if (parent == nullptr)      // If the parent is NULL (tree is empty)
+        {
+            ROOT = newNode;     // Mark the new nood as root
+            return;     // exit
+        }
+
+        if (element < parent->info)     // if the value in the data field of the new node is less than that of the
+        {
+            parent->leftchild = newNode;     // Make the left child of the parent point to the new node
+        }
+        else if (element > parent->info)      // if the value in the data field of the new node is greater than that
+        {
+            parent->rightchild = newNode;       // Make the right child of the parent point to the new node
+        }
     }
+
+    void search(string element, Node*& parent, Node*& currentNode)
+    {
+        // This function searches the currentNode of the specified Node as well as the current Node of its parent
+        currentNode = ROOT;
+        parent = nullptr;
+        
+    }
+
 };
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    
 }
